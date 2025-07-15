@@ -4,7 +4,13 @@ import path from 'path';
 export const load = async(event) => {
     const store = new ItemAggregateStore()
     const result = await store.fetch({event})
-    const filePath = path.resolve('src/routes/items_aggregate/itemsAggregate.gql');
-	const query = fs.readFileSync(filePath, 'utf8');
+    const query = `query ItemAggregate{
+  itemsAggregate{
+    _count
+    quantity{
+      sum
+    }
+  }
+}`
     return {query,result}
 }
