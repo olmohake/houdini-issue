@@ -1,0 +1,8 @@
+query ItemAggregate{
+  itemsAggregate{
+    _count
+    quantity{
+      sum
+    }
+  }
+}
