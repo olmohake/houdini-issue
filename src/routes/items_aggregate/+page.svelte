@@ -1,8 +1,9 @@
 <script lang="ts">
     let {data} = $props()
 </script>
-<h1>Items Aggretate Result</h1>
+<h1>Query</h1>
+{data.query}
 
-    <div>
-        {JSON.stringify(data,null,2)} 
-    </div>
+<h1>Result</h1>
+{JSON.stringify(data.result)}
+

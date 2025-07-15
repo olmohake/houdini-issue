@@ -1,7 +1,10 @@
 import { ItemAggregateStore } from '$houdini'
-
+import fs from 'fs';
+import path from 'path';
 export const load = async(event) => {
-    const query = new ItemAggregateStore()
-    const result = await query.fetch({event})
-    return result
+    const store = new ItemAggregateStore()
+    const result = await store.fetch({event})
+    const filePath = path.resolve('src/routes/items_aggregate/itemsAggregate.gql');
+	const query = fs.readFileSync(filePath, 'utf8');
+    return {query,result}
 }
